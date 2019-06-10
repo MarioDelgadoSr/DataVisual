@@ -9,13 +9,13 @@ With a *DataVisual* you can dynamically visualize individual [meshes](https://th
 
 ### Prerequisites
 
-If using the Chrome browser with file system access, the ' --allow-file-access-from-files' flag must be utilized.  
+If using the Chrome browser with file system access, the *--allow-file-access-from-files* flag must be utilized.  
 See:  [How to set the allow-file-access-from-files flag option in Google Chrome](http://www.chrome-allow-file-access-from-file.com/)
 
 
 ### Installing
 
-Download zip of code, unzip to a folder and launch index.html from a web server or from the file system with a [WebGL enabled browser] (https://get.webgl.org/).
+Download zip of code, unzip to a folder and launch index.html from a web server or from the file system with a [WebGL enabled browser](https://get.webgl.org/).
 
 
 ## Documentation
@@ -79,7 +79,7 @@ Method | Description
 ![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
 
-## Authors
+## Author
 
 * **Mario Delgado**  
 Github: [MarioDelgadoSr](https://github.com/MarioDelgadoSr)
