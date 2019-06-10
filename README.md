@@ -7,6 +7,27 @@ The pattern is implemented in JavaScript using the [ThreeJS](https://threejs.org
 
 With a *DataVisual* you can dynamically visualize individual [meshes](https://threejs.org/docs/index.html#api/en/objects/Mesh), that have unique [materials](https://threejs.org/docs/index.html#api/en/materials/Material) associated with them, in a ThreeJS scene.
 
+## Screen Shot of aquaRobot (U.S Navy Salvage Robot) Demonstration
+
+![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
+
+The demo illustrates *DataVisual* with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaRobot being tested to determine an optimal salvage
+retrieval strategy for objects floating and submersed out at sea.  aquaRobot utilizes both data information about the salvage items and the 3D visual's spatial attributes to maximize the salvage; keeping track of how
+much fuel it would have left.  
+
+The 3D visual was developed with [Blender](https://www.blender.org/) and exported as a [glTF](https://en.wikipedia.org/wiki/GlTF) file.  
+ThreeJS's [GLTFLoader] https://threejs.org/docs/index.html#examples/loaders/GLTFLoader is used in the demonstration to load the 3D visual an then dynamically visualizes it.
+
+
+The visualization animates the salvage strategy and leverages several of *DataVisual*'s features including:
+
+* Maintaing join context when sorting the join object;
+* Referencing joined properties from both the data and visual;
+* Dynamic data coloring/visualization using [D3.js](https://d3js.org/).
+* Rendering only objects that will be salvaged with a user-driven option to display all objects;
+* Demonstration of the raycasting to display which object is selected; leveraging *DataVisual*'s *getJoinByUUID* method.
+
+
 ### Prerequisites
 
 If using the Chrome browser with file system access, the *--allow-file-access-from-files* flag must be utilized.  
@@ -71,12 +92,9 @@ Method | Description
 * [D3.js](https://d3js.org/) - D3 framework
 * [ThreeJS](https://threejs.org/) - ThreeJS framework
 * [glTF](https://www.khronos.org/gltf/) - Khronos' graphic library Transfer Format
+* [GLTFLoader](https://threejs.org/docs/index.html#examples/loaders/GLTFLoader) - A loader for glTF 2.0 resources
 * [dat.gui](https://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage) - dat.gui
 * [Blender](https://www.blender.org/) - For building a 3D visual and [exporting](https://docs.blender.org/manual/en/dev/addons/io_gltf2.html) it to a glTF file.
-
-## Screen Shot of aquaRobot (Navy Salvage Robot) Demonstration
-
-![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
 
 ## Author
