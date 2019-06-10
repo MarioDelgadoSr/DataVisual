@@ -7,7 +7,7 @@ The pattern is implemented in JavaScript using the [ThreeJS](https://threejs.org
 
 With a *DataVisual* you can dynamically visualize individual [meshes](https://threejs.org/docs/index.html#api/en/objects/Mesh), that have unique [materials](https://threejs.org/docs/index.html#api/en/materials/Material) associated with them, in a ThreeJS scene.
 
-Traditional [dataset processing](https://en.wikipedia.org/wiki/Set_theory) can be used on a *DataVisual* leveraging [JavaScript's robust array methods](https://www.w3schools.com/js/js_array_methods.asp); most notably [MapReduce}(http://jcla1.com/blog/javascript-mapreduce) patterns.
+Traditional [dataset processing](https://en.wikipedia.org/wiki/Set_theory) can be used on a *DataVisual* leveraging [JavaScript's robust array methods](https://www.w3schools.com/js/js_array_methods.asp); most notably [MapReduce](http://jcla1.com/blog/javascript-mapreduce) patterns.
 
 ## *DataVisual* Demonstrated With a U.S Navy Salvage Robot (aquaRobot) Use Case
 
