@@ -7,12 +7,14 @@ The pattern is implemented in JavaScript using the [ThreeJS](https://threejs.org
 
 With a *DataVisual* you can dynamically visualize individual [meshes](https://threejs.org/docs/index.html#api/en/objects/Mesh), that have unique [materials](https://threejs.org/docs/index.html#api/en/materials/Material) associated with them, in a ThreeJS scene.
 
+Traditional [dataset processing](https://en.wikipedia.org/wiki/Set_theory) can be used on a *DataVisual* leveraging [JavaScript's robust array methods](https://www.w3schools.com/js/js_array_methods.asp); most notably [MapReduce}(http://jcla1.com/blog/javascript-mapreduce) patterns.
+
 ## *DataVisual* Demonstrated With a U.S Navy Salvage Robot (aquaRobot) Use Case
 
 ![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
 The demo illustrates *DataVisual* features with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaRobot determining an optimal salvage
-retrieval strategy for objects floating and submersed out at sea.  aquaRobot utilizes both data information about the salvage items and the 3D visual's spatial attributes to maximize the salvage; keeping track of how
+retrieval strategy for objects floating and submersed out at sea.  aquaRobot utilizes information about the salvage items in a data array partnered/join with the 3D visual's spatial attributes to maximize the salvage; keeping track of how
 much fuel it would have left.  
 
 The 3D visual was developed with [Blender](https://www.blender.org/) and exported as a [glTF](https://en.wikipedia.org/wiki/GlTF) file.  
