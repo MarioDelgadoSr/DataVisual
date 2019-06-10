@@ -1,4 +1,4 @@
-[comment]: <> Markdown reference: https://guides.github.com/features/mastering-markdown/
+<!-- Markdown reference: https://guides.github.com/features/mastering-markdown/ -->
 
 # DataVisual
 
