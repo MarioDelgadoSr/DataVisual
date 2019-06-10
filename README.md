@@ -74,8 +74,8 @@ Property | Description
 .join.visualObj | A reference to the ThreeJS mesh being 'joined' to.
 .data | The original data participating in the 'join'.
 .visual | The original visual participating in the 'join'.
-.dataKey | The data key attribute being used to join to a corresponding mesh in the visual 
-.visualKey |The visual key attribute being used to join to in the visual's mesh. *visualKey* can be a mesh property or property of the mesh's *.userData* member
+.dataKey | The data key attribute being used to join to a corresponding mesh in the visual.
+.visualKey |The visual key attribute being used to join to the visual's mesh. Property *visualKey* can be a direct property of a mesh or a property of the mesh's *.userData* member.
 
 **Methods:**
 
