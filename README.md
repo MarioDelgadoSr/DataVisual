@@ -77,7 +77,7 @@ Property | Description
 .visual | The original visual participating in the 'join'.
 .dataKey | The data key attribute being used to join to a corresponding mesh in the visual.
 .visualKey |The visual key attribute being used to join to the visual's mesh. Property *visualKey* can be a direct property of a mesh or a property of the mesh's *.userData* member.
-
+.nonMatchingDataKeys | An array holding any dataKey(s) that did not join/match when the *joinDataToVisual* method was invoked.
 **Methods:**
 
 Method | Description
