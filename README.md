@@ -3,7 +3,7 @@
 # DataVisual
 
 *DataVisual* is a design pattern for developing data visualizations with [WebGL](https://get.webgl.org/) 3D assets.  
-The pattern is implemented in JavaScript using the [ThreeJS] (https://threejs.org/) framework, but is applicable to other frameworks like Babylon.
+The pattern is implemented in JavaScript using the [ThreeJS](https://threejs.org/) framework, but is applicable to other frameworks like Babylon.
 
 With a *DataVisual* you can dynamically visualize individual [meshes](https://threejs.org/docs/index.html#api/en/objects/Mesh), that have unique [materials](https://threejs.org/docs/index.html#api/en/materials/Material) associated with them, in a ThreeJS scene.
 
