@@ -27,7 +27,7 @@ The visualization animates the salvage strategy and leverages several of *DataVi
 * Referencing joined properties from both the data and visual;
 * Dynamic data coloring/visualization using [D3.js](https://d3js.org/).
 * Rendering only objects that will be salvaged with a data-drive algorithm;  
-	*All objects can be displayed/rendered with a user-driven (aquaRobot's Operator) option for *human* validation;
+	* All objects can be displayed/rendered with a user-driven (aquaRobot's Operator) option for *human* validation;
 * Demonstration of the raycasting to display which object is selected; leveraging *DataVisual*'s *getJoinByUUID* method.
 
 
