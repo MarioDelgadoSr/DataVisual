@@ -46,19 +46,26 @@ dataVisual.joinDataToVisual(data, visual);
 
 **Properties:** 
 
-* .join								// A join object (array).  Each element of the array will be an object referencing a matching dataRow and visuaObj.
-	* .dataRow						// A reference to data row from the original data array that corresponds to the matching visualObj.
-	* .visualObj					// A referenct to the ThreeJS mesh being 'joined' to.
-* .data 							// The original data participating in the 'join'.
-* .visual							// The original visual participating in the 'join'.
-.dataKey 							// The data key attribute being used to join to a corresponding mesh in the visual 
-.visualKey 							// The visual key attribute being used to join to in the visual's mesh. *visualKey* can be a mesh property or property of the mesh's *.userData* member
+Property | Description
+-------- | -----------
+
+.join | A join object (array).  Each element of the array will be an object referencing a matching dataRow and visuaObj.
+.join.dataRow | A reference to data row from the original data array that corresponds to the matching visualObj.
+.join.visualObj | A reference to the ThreeJS mesh being 'joined' to.
+.data | The original data participating in the 'join'.
+.visual | The original visual participating in the 'join'.
+.dataKey | The data key attribute being used to join to a corresponding mesh in the visual 
+.visualKey |The visual key attribute being used to join to in the visual's mesh. *visualKey* can be a mesh property or property of the mesh's *.userData* member
 
 **Methods:**
 
-.getJoinByUUID(uuid)				// A method to retieve a joined row by referencing a mesh's *uuid*. This method is very helpful with [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) techniques. 	
-.getJoinByKey(dataKey)              // A method to retreive a joined row by referencing a dataRow's *dataKey*.
-.setColorVisualObj(visualObj,color) // A method to set the materia.color property for a mesh.  The method utilized the ThreeJS [traverse](https://threejs.org/docs/index.html#api/en/core/Object3D.traverse) method to set color for any children the mesh may have as well.
+Method | Description
+-------| -----------
+.joinDataToVisual(data, visual) | Join *data* to a *visual*'s mesh utilizing each objects *name* property
+.joinDataToVisual(data, visual, dataKey, visualKey) | Join *data* to a *visual* utilizing *data*'s *dataKey* property and *visual*'s *visualKey* property.  *visualKey* can be a direct property of a mesh, or it's *.userData* property.
+.getJoinByUUID(uuid) | Get a joined row by referencing a mesh's *uuid*. This method is very helpful with [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) techniques. 	
+.getJoinByKey(dataKey) | Get a joined row by referencing a dataRow's *dataKey*.
+.setColorVisualObj(visualObj,color) | Set the materia.color property for a mesh.  The method utilized the ThreeJS [traverse](https://threejs.org/docs/index.html#api/en/core/Object3D.traverse) method to set color for any children the mesh may have as well.
 
 ## Built With
 
@@ -70,7 +77,7 @@ dataVisual.joinDataToVisual(data, visual);
 
 ## Screen Shot of Demonstration
 
-![Screen Shot of Demonstration](https://raw.githubusercontent.com/MarioDelgadoSr/DataVisual/master/img/demoDesignPatternScreenShot.png)
+![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
 
 ## Authors
