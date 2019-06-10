@@ -81,12 +81,9 @@ Method | Description
 
 ## Author
 
-* **Mario Delgado**  
-Github: [MarioDelgadoSr](https://github.com/MarioDelgadoSr)
-
-LinkedIn: [Mario Delgado](https://www.linkedin.com/in/mario-delgado-5b6195155/)
-
-[My Data Visualizer](https://qzfcxunzx7ydnpxm3djoqw-on.drv.tw/DataVisualizer/): A data visualization application using the *DataVisual* design pattern.
+* **Mario Delgado**  Github: [MarioDelgadoSr](https://github.com/MarioDelgadoSr)
+* LinkedIn: [Mario Delgado](https://www.linkedin.com/in/mario-delgado-5b6195155/)
+*[My Data Visualizer](https://qzfcxunzx7ydnpxm3djoqw-on.drv.tw/DataVisualizer/): A data visualization application using the *DataVisual* design pattern.
 
 
 ## License
