@@ -1,17 +1,17 @@
 <!-- Markdown reference: https://guides.github.com/features/mastering-markdown/ -->
 
-# DataVisual
+# *DataVisual*
 
 *DataVisual* is a design pattern for developing data visualizations with [WebGL](https://get.webgl.org/) 3D assets.  
 The pattern is implemented in JavaScript using the [ThreeJS](https://threejs.org/) framework, but is applicable to other frameworks like [Babylon](https://www.babylonjs.com/).
 
 With a *DataVisual* you can dynamically visualize individual [meshes](https://threejs.org/docs/index.html#api/en/objects/Mesh), that have unique [materials](https://threejs.org/docs/index.html#api/en/materials/Material) associated with them, in a ThreeJS scene.
 
-## Screen Shot of aquaRobot (U.S Navy Salvage Robot) Demonstration
+## *DataVisual* Demonstrated With a U.S Navy Salvage Robot (aquaRobot) Use Case
 
 ![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
-The demo illustrates *DataVisual* with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaRobot being tested to determine an optimal salvage
+The demo illustrates *DataVisual* features with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaRobot determining an optimal salvage
 retrieval strategy for objects floating and submersed out at sea.  aquaRobot utilizes both data information about the salvage items and the 3D visual's spatial attributes to maximize the salvage; keeping track of how
 much fuel it would have left.  
 
