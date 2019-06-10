@@ -48,7 +48,6 @@ dataVisual.joinDataToVisual(data, visual);
 
 Property | Description
 -------- | -----------
-
 .join | A join object (array).  Each element of the array will be an object referencing a matching dataRow and visuaObj.
 .join.dataRow | A reference to data row from the original data array that corresponds to the matching visualObj.
 .join.visualObj | A reference to the ThreeJS mesh being 'joined' to.
@@ -75,7 +74,7 @@ Method | Description
 * [dat.gui](https://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage) - dat.gui
 * [Blender](https://www.blender.org/) - For building a 3D visual and [exporting](https://docs.blender.org/manual/en/dev/addons/io_gltf2.html) it to a glTF file.
 
-## Screen Shot of Demonstration
+## Screen Shot of aquaRobot (Navy Salvage Robot) Demonstration
 
 ![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
