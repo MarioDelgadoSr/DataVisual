@@ -31,7 +31,7 @@ The visualization animates the salvage strategy and leverages several of *DataVi
 
 ### Prerequisites
 
-If using the Chrome browser with file system access, the *--allow-file-access-from-files* flag must be utilized.  
+If using the Chrome browser with file system access, the *--allow-file-access-from-files* flag **must** be used.  
 See:  [How to set the allow-file-access-from-files flag option in Google Chrome](http://www.chrome-allow-file-access-from-file.com/)
 
 
