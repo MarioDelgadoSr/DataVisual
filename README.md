@@ -48,8 +48,8 @@ dataVisual.joinDataToVisual(data, visual);
 
 Property | Description
 -------- | -----------
-.join | A join object (array).  Each element of the array will be an object referencing a matching dataRow and visuaObj.
-.join.dataRow | A reference to data row from the original data array that corresponds to the matching visualObj.
+.join | A join object (array).  Each element of the array will be an object referencing a joined (matching) dataRow and visuaObj.
+.join.dataRow | A reference to data row from the original data array that corresponds to the joined (matching) visualObj.
 .join.visualObj | A reference to the ThreeJS mesh being 'joined' to.
 .data | The original data participating in the 'join'.
 .visual | The original visual participating in the 'join'.
