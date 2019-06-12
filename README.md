@@ -2,10 +2,10 @@
 
 # *DataVisual*
 
-*DataVisual* is a design pattern for developing data visualizations with [WebGL](https://get.webgl.org/) 3D assets.  
-The pattern is implemented in JavaScript using the [ThreeJS](https://threejs.org/) framework, but is applicable to other frameworks like [Babylon](https://www.babylonjs.com/).
+*DataVisual* is a design/programming pattern for developing data visualizations with [WebGL](https://get.webgl.org/) 3D assets.  
+The pattern is implemented in JavaScript using the [Three.js](https://threejs.org/) framework, but is applicable to other frameworks like [Babylon](https://www.babylonjs.com/).
 
-With a *DataVisual* you can dynamically visualize individual [meshes](https://threejs.org/docs/index.html#api/en/objects/Mesh), that have unique [materials](https://threejs.org/docs/index.html#api/en/materials/Material) associated with them, in a ThreeJS scene.
+With a *DataVisual* you can dynamically visualize individual [meshes](https://threejs.org/docs/index.html#api/en/objects/Mesh), that have unique [materials](https://threejs.org/docs/index.html#api/en/materials/Material) associated with them, in a Three.js scene.
 
 Traditional [dataset processing](https://en.wikipedia.org/wiki/Set_theory) can be used on a *DataVisual* leveraging [JavaScript's robust array methods](https://www.w3schools.com/js/js_array_methods.asp); most notably [MapReduce](http://jcla1.com/blog/javascript-mapreduce) patterns.
 
@@ -18,7 +18,7 @@ retrieval strategy for objects floating and submersed out at sea.  aquaRobot uti
 much fuel it would have left.  
 
 The 3D visual was developed with [Blender](https://www.blender.org/) and exported as a [glTF](https://en.wikipedia.org/wiki/GlTF) file.  
-ThreeJS's [GLTFLoader](https://threejs.org/docs/index.html#examples/loaders/GLTFLoader) is used in the demonstration to load the 3D visual an then dynamically visualizes it.
+Three.js's [GLTFLoader](https://threejs.org/docs/index.html#examples/loaders/GLTFLoader) is used in the demonstration to load the 3D visual an then dynamically visualizes it.
 
 
 The visualization animates the salvage strategy and leverages several of *DataVisual*'s features including:
@@ -44,7 +44,7 @@ Download zip of code, unzip to a folder and launch index.html from a web server 
 
 ## Documentation
 
-Observable (documentation in progress): [DataVisual (Data + Visual) Design Pattern for WebGL 3D Assets](https://observablehq.com/d/d3eef89e5e71f3e1)
+Observable Notebook: [DataVisual (Data + Visual) Design Pattern for WebGL 3D Assets](https://observablehq.com/@mariodelgadosr/datavisual-data-visual-design-pattern-for-webgl-3d-assets)
 
 
 ## Design Pattern Usage Illustrated in the Demonstration
@@ -74,7 +74,7 @@ Property | Description
 -------- | -----------
 .join | A join object (array).  Each element of the array will be an object referencing a joined (matching) dataRow and visuaObj.
 .join.dataRow | A reference to data row from the original data array that corresponds to the joined (matching) visualObj.
-.join.visualObj | A reference to the ThreeJS mesh being 'joined' to.
+.join.visualObj | A reference to the Three.js mesh being 'joined' to.
 .data | The original data participating in the 'join'.
 .visual | The original visual participating in the 'join'.
 .dataKey | The data key attribute being used to join to a corresponding mesh in the visual.
@@ -88,12 +88,12 @@ Method | Description
 .joinDataToVisual(data, visual, dataKey, visualKey) | Join *data* to a *visual* utilizing *data*'s *dataKey* property and *visual*'s *visualKey* property.  *visualKey* can be a direct property of a mesh, or it's *.userData* property.
 .getJoinByUUID(uuid) | Get a joined row by referencing a mesh's *uuid*. This method is very helpful with [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) techniques. 	
 .getJoinByKey(dataKey) | Get a joined row by referencing a dataRow's *dataKey*.
-.setColorVisualObj(visualObj,color) | Set the materia.color property for a mesh.  The method utilized the ThreeJS [traverse](https://threejs.org/docs/index.html#api/en/core/Object3D.traverse) method to set color for any children the mesh may have as well.
+.setColorVisualObj(visualObj,color) | Set the materia.color property for a mesh.  The method utilized the Three.js [traverse](https://threejs.org/docs/index.html#api/en/core/Object3D.traverse) method to set color for any children the mesh may have as well.
 
 ## Built With
 
 * [D3.js](https://d3js.org/) - D3 framework
-* [ThreeJS](https://threejs.org/) - ThreeJS framework
+* [Three.js](https://threejs.org/) - Three.js framework
 * [glTF](https://www.khronos.org/gltf/) - Khronos' graphic library Transfer Format
 * [GLTFLoader](https://threejs.org/docs/index.html#examples/loaders/GLTFLoader) - A loader for glTF 2.0 resources
 * [dat.gui](https://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage) - dat.gui
