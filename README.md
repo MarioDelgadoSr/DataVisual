@@ -57,7 +57,7 @@ Observable Notebook: [DataVisual (Data + Visual) Design Pattern for WebGL 3D Ass
 var data = [{name: "object1", value: value1, ...} ,{name: "object2", value2, ...}, ... }];
 ```
 
-* A glTF file loaded into the variable *visual* with *name* attibutes for the meshes that match the 'name' attributes for the data object;
+* A glTF file loaded into the variable *visual* with *name* attibutes for the meshes that match the *name* attributes for the data object;
 
 **Create a DataVisual object with the following syntax:**
 
