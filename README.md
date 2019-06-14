@@ -90,7 +90,8 @@ Method | Description
 .getJoinByUUID(uuid, "index") | Get a joined row's index by referencing a mesh's *uuid*. This method is very helpful with [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) techniques. 	
 .getJoinByKey(dataKey) | Get a joined row by referencing a dataRow's *dataKey*.
 .getJoinByKey(dataKey, "index") | Get a joined row's index by referencing a dataRow's *dataKey*.
-.setColorVisualObj(visualObj,color) | Set the materia.color property for a mesh.  The method utilized the Three.js [traverse](https://threejs.org/docs/index.html#api/en/core/Object3D.traverse) method to set color for any children the mesh may have as well.
+.setColorVisualObj(visualObj,color) | Set the material.color property for a mesh.  The method utilizes the Three.js [traverse](https://threejs.org/docs/index.html#api/en/core/Object3D.traverse) method to set color for any children the mesh may have as well.
+.setColorByJoinIndex(index,color) | Set the material.color property for a mesh by referencing the index of the join. The method invokes .setColorVisualObj for the given index.
 
 ## Built With
 
