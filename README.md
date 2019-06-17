@@ -41,6 +41,18 @@ See:  [How to set the allow-file-access-from-files flag option in Google Chrome]
 
 Download zip of code, unzip to a folder and launch index.html from a web server or from the file system with a [WebGL enabled browser](https://get.webgl.org/).
 
+The demonstration will intially prompt for the type of glTF file to utilize:
+
+<div id="seaScapeDiv">
+	<div id="optionPrompt">
+		<input type="radio" name="gltfOption" value="gltf/seaScape.gltf" checked>seaScape.gltf<br>
+		<input type="radio" name="gltfOption" value="gltf/seaScapeEmbeddedData.gltf">seaScapeEmbeddedData.gltf<br>
+		<input type="button" value="Process Seleted glTF file" >
+	</div>
+</div>
+
+* gltf/seaScape.gltf will utilize data as a separate object in the *join*.
+* gltf/seaScapeEmbeddedData.gltf will utilized embedded data within the glTF file; extracting it first before implementing the *join*.
 
 ## Documentation
 
@@ -48,6 +60,8 @@ Observable Notebook: [DataVisual (Data + Visual) Design Pattern for WebGL 3D Ass
 
 
 ## Design Pattern Usage Illustrated in the Demonstration
+
+### DataVisual with Data in an Object Apart from the Visual 
 
 **Assuming the following:**
 
@@ -66,7 +80,35 @@ var dataVisual = new dataVisual();
 dataVisual.joinDataToVisual(data, visual);
 ```
 
-**The dataVisual has the following properties and methods:**
+### DataVisual with Data Embedded in Visual
+
+Three.js, as well as the glTF specifications, provide for a strategy to extend the visual with data that can be visualize.
+
+* With Three.js it is the [userData](https://threejs.org/docs/index.html#api/en/core/Object3D.userData) property.
+* With gltF it is the [extras](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-extras) property.
+
+Instantiating a **DataVisual* in the following format creates a *dataVisual* object from a *visual* when the data embedded in the *userData* property.
+
+```javascript
+var dataVisual = new dataVisual();
+dataVisual.joinDataToVisual(visual);
+```
+
+**The dataVisual has the following methods and properties:**
+
+**Methods:**
+
+Method | Description
+-------| -----------
+.joinDataToVisual(data, visual) | Join *data* to a *visual*'s mesh utilizing each objects *name* property
+.joinDataToVisual(data, visual, dataKey, visualKey) | Join *data* to a *visual* utilizing *data*'s *dataKey* property and *visual*'s *visualKey* property.  *visualKey* can be a direct property of a mesh, or it's *.userData* property.
+.joinDataToVisual(visual) | Creates a *dataVisual* object from a *visual* when the data is embedded within in the [*userData*](https://threejs.org/docs/index.html#api/en/core/Object3D.userData) property for mesh(es).
+.getJoinByUUID(uuid) | Get a joined row by referencing a mesh's *uuid*. This method is very helpful with [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) techniques. 	
+.getJoinByUUID(uuid, "index") | Get a joined row's index by referencing a mesh's *uuid*. This method is very helpful with [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) techniques. 	
+.getJoinByKey(dataKey) | Get a joined row by referencing a dataRow's *dataKey*.
+.getJoinByKey(dataKey, "index") | Get a joined row's index by referencing a dataRow's *dataKey*.
+.setColorVisualObj(visualObj,color) | Set the material.color property for a mesh.  The method utilizes the Three.js [traverse](https://threejs.org/docs/index.html#api/en/core/Object3D.traverse) method to set color for any children the mesh may have as well.
+.setColorByJoinIndex(index,color) | Set the material.color property for a mesh by referencing the index of the join. The method invokes .setColorVisualObj for the given index.
 
 **Properties:** 
 
@@ -80,18 +122,6 @@ Property | Description
 .dataKey | The data key attribute being used to join to a corresponding mesh in the visual.
 .visualKey |The visual key attribute being used to join to the visual's mesh. Property *visualKey* can be a direct property of a mesh or a property of the mesh's *.userData* member.
 .nonMatchingDataKeys | An array holding any dataKey(s) that did not join/match when the *joinDataToVisual* method was invoked.
-**Methods:**
-
-Method | Description
--------| -----------
-.joinDataToVisual(data, visual) | Join *data* to a *visual*'s mesh utilizing each objects *name* property
-.joinDataToVisual(data, visual, dataKey, visualKey) | Join *data* to a *visual* utilizing *data*'s *dataKey* property and *visual*'s *visualKey* property.  *visualKey* can be a direct property of a mesh, or it's *.userData* property.
-.getJoinByUUID(uuid) | Get a joined row by referencing a mesh's *uuid*. This method is very helpful with [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) techniques. 	
-.getJoinByUUID(uuid, "index") | Get a joined row's index by referencing a mesh's *uuid*. This method is very helpful with [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) techniques. 	
-.getJoinByKey(dataKey) | Get a joined row by referencing a dataRow's *dataKey*.
-.getJoinByKey(dataKey, "index") | Get a joined row's index by referencing a dataRow's *dataKey*.
-.setColorVisualObj(visualObj,color) | Set the material.color property for a mesh.  The method utilizes the Three.js [traverse](https://threejs.org/docs/index.html#api/en/core/Object3D.traverse) method to set color for any children the mesh may have as well.
-.setColorByJoinIndex(index,color) | Set the material.color property for a mesh by referencing the index of the join. The method invokes .setColorVisualObj for the given index.
 
 ## Built With
 

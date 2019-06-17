@@ -23,32 +23,75 @@
 
 	<body>
 		
-		<div id="seaScapeDiv"></div>
+		<div id="seaScapeDiv">
+			<div id="optionPrompt">
+				<input type="radio" name="gltfOption" value="gltf/seaScape.gltf" checked>seaScape.gltf<br>
+				<input type="radio" name="gltfOption" value="gltf/seaScapeEmbeddedData.gltf">seaScapeEmbeddedData.gltf<br>
+				<input type="button" value="Process Seleted glTF file" onclick="fnProcessGLTF()">
+			</div>
+		</div>
 		
 		<script>
 		
-			const gltfFile = "gltf/seaScape.gltf";														//The glTF file with the seaScape aquaRobot will anlayze
-	
-			var data = [																				// Data establishing a 'value' for each salvageable cube in the seaScape
-							{"name": "Cube.001", "value": 10},		
-							{"name": "Cube.002", "value": 100},		
-							{"name": "Cube.003", "value": 40},		 
-							{"name": "Cube.004", "value": 20},
-							{"name": "Cube.005", "value": 15},
-							{"name": "Cube.006", "value": 40},
-							{"name": "Cube.007", "value": 10},
-							{"name": "Cube.008", "value": 55},
-							{"name": "Cube.009", "value": 35},
-							{"name": "Cube.010", "value": 45},
-						 ];	
+			function fnProcessGLTF(){
+
+				    var radioButtons = document.getElementsByName("gltfOption");
+					for( var i = 0; i < radioButtons.length; i++){
+						if(radioButtons[i].checked == true)
+							break;
+					} //for
+					gltfFile = radioButtons[i].value;
+			
+					document.getElementById("seaScapeDiv").removeChild(document.getElementById("optionPrompt"));
+				
+					switch(gltfFile){
+			
+						case "gltf/seaScape.gltf":
+							var data = [																		// Data establishing a 'value' for each salvageable cube in the seaScape
+											{"name": "Cube.001", "value": 10},		
+											{"name": "Cube.002", "value": 100},		
+											{"name": "Cube.003", "value": 40},		 
+											{"name": "Cube.004", "value": 20},
+											{"name": "Cube.005", "value": 15},
+											{"name": "Cube.006", "value": 40},
+											{"name": "Cube.007", "value": 10},
+											{"name": "Cube.008", "value": 55},
+											{"name": "Cube.009", "value": 35},
+											{"name": "Cube.010", "value": 45},
+										 ];	
+							break;
+							
+						case "gltf/seaScapeEmbeddedData.gltf":
+							
+							var data = [];
+							break;
+						
+					} //switch
+					
+
+					var gltfLoader = new THREE.GLTFLoader(); // https://threejs.org/docs/index.html#examples/loaders/GLTFLoader
+
+					gltfLoader.load( gltfFile, function( seaScape ) {
+						
+						fnVisualize(data, seaScape);
+										
+					}, //Loader function handlder
+
+					undefined, function ( error ) {   //Error Handling
+
+						alert("Error loading " + gltfFile + ": " + error );
+
+					} ); //gltfLoader					
 								
+	
+
+
+			} //fnProcessGLTF	
+		
 		</script>
 		
-		
 		<!-- Demo Using gltfFile and data to illustrate use of DataVisual design pattern -->
-		<script src="lib/demoDesignPattern.js" ></script> 
-
-		
+		<script src="lib/demoDesignPattern.js" ></script>		
 	</body>
 
 </html>
