@@ -76,7 +76,7 @@ dataVisual.joinDataToVisual(data, visual);
 
 ### DataVisual with Data Embedded in the Visual
 
-Three.js, as well as the glTF specifications, provide for a strategy to extend the visual with data that can be visualize.
+Three.js, as well as the glTF specifications, provide for a strategy to extend the visual with data that can be visualized:
 
 * With Three.js it is the [userData](https://threejs.org/docs/index.html#api/en/core/Object3D.userData) property.
 * With gltF it is the [extras](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-extras) property.
