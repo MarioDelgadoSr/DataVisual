@@ -74,7 +74,7 @@ var dataVisual = new dataVisual();
 dataVisual.joinDataToVisual(data, visual);
 ```
 
-### DataVisual with Data Embedded in Visual
+### DataVisual with Data Embedded in the Visual
 
 Three.js, as well as the glTF specifications, provide for a strategy to extend the visual with data that can be visualize.
 
