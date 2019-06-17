@@ -43,13 +43,7 @@ Download zip of code, unzip to a folder and launch index.html from a web server 
 
 The demonstration will intially prompt for the type of glTF file to utilize:
 
-<div id="seaScapeDiv">
-	<div id="optionPrompt">
-		<input type="radio" name="gltfOption" value="gltf/seaScape.gltf" checked>seaScape.gltf<br>
-		<input type="radio" name="gltfOption" value="gltf/seaScapeEmbeddedData.gltf">seaScapeEmbeddedData.gltf<br>
-		<input type="button" value="Process Seleted glTF file" >
-	</div>
-</div>
+![Screen Shot of glTF Selection](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/gltfSelection.PNG)
 
 * gltf/seaScape.gltf will utilize data as a separate object in the *join*.
 * gltf/seaScapeEmbeddedData.gltf will utilized embedded data within the glTF file; extracting it first before implementing the *join*.
