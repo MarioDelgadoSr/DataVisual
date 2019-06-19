@@ -70,8 +70,8 @@ var data = [{name: "object1", value: value1, ...} ,{name: "object2", value2, ...
 **Create a DataVisual object with the following syntax:**
 
 ```javascript
-var dataVisual = new dataVisual();
-dataVisual.joinDataToVisual(data, visual);
+var datVisual = new dataVisual();
+datVisual.joinDataToVisual(data, visual);
 ```
 
 ### DataVisual with Data Embedded in the Visual
@@ -84,8 +84,8 @@ Three.js, as well as the glTF specifications, provide for a strategy to extend t
 Instantiating a **DataVisual* in the following format creates a *dataVisual* object from a *visual* when the data embedded in the *userData* property.
 
 ```javascript
-var dataVisual = new dataVisual();
-dataVisual.joinDataToVisual(visual);
+var datVisual = new dataVisual();
+datVisual.joinDataToVisual(visual);
 ```
 
 **The dataVisual has the following methods and properties:**
