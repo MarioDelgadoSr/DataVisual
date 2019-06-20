@@ -96,7 +96,7 @@ datVisual.joinDataToVisual(visual);
 
 Method | Description
 -------| -----------
-.joinDataToVisual(data, visual) | Join *data* to a *visual*'s mesh utilizing each objects *name* property
+.joinDataToVisual(data, visual) | Join *data* to a *visual*'s mesh utilizing each object's *name* property
 .joinDataToVisual(data, visual, dataKey, visualKey) | Join *data* to a *visual* utilizing *data*'s *dataKey* property and *visual*'s *visualKey* property.  *visualKey* can be a direct property of a mesh, or it's *.userData* property.
 .joinDataToVisual(visual) | Creates a *dataVisual* object from a *visual* when the data is embedded within in the [*userData*](https://threejs.org/docs/index.html#api/en/core/Object3D.userData) property for mesh(es).
 .getJoinByUUID(uuid) | Get a joined row by referencing a mesh's *uuid*. This method is very helpful with [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) techniques. 	
