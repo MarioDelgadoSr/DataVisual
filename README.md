@@ -83,7 +83,7 @@ Three.js, as well as the glTF specifications, provide for a strategy to extend t
 * With Three.js it is the [userData](https://threejs.org/docs/index.html#api/en/core/Object3D.userData) property.
 * With gltF it is the [extras](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-extras) property.
 
-Instantiating a **DataVisual** in the following format creates a *dataVisual* object from a *visual* when the data embedded in the *userData* property.
+Instantiating a **DataVisual** in the following format creates a *dataVisual* object from a *visual* when the data is embedded in the *userData* property.
 
 ```javascript
 var datVisual = new dataVisual();
