@@ -14,7 +14,9 @@ Traditional [dataset processing](https://en.wikipedia.org/wiki/Set_theory) can b
 ![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
 The demo illustrates *DataVisual* features with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaRobot determining an optimal salvage
-retrieval strategy for objects floating and submersed out at sea.  aquaRobot utilizes information about the salvage items in a data array partnered/join with the 3D visual's spatial attributes to maximize the salvage; keeping track of how
+retrieval strategy for objects floating and submersed out at sea.  
+
+aquaRobot utilizes information about the salvage items in a data array partnered/join with the 3D visual's spatial attributes to maximize the salvage; keeping track of how
 much fuel it would have left.  
 
 The 3D visual was developed with [Blender](https://www.blender.org/) and exported as a [glTF](https://en.wikipedia.org/wiki/GlTF) file.  
