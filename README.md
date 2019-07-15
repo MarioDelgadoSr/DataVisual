@@ -13,7 +13,7 @@ Traditional [dataset processing](https://en.wikipedia.org/wiki/Set_theory) can b
 
 ![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
-The demo illustrates *DataVisual* features with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaRobot determining an optimal salvage
+The [demonstration (https://mariodelgadosr.github.io/DataVisual/)](https://mariodelgadosr.github.io/DataVisual/) illustrates *DataVisual* features with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaRobot determining an optimal salvage
 retrieval strategy for objects floating and submersed out at sea.  
 
 aquaRobot utilizes information about the salvage items in a data array partnered/join with the 3D visual's spatial attributes to maximize the salvage; keeping track of how
@@ -43,7 +43,7 @@ See:  [How to set the allow-file-access-from-files flag option in Google Chrome]
 
 Download zip of code, unzip to a folder and launch index.html from a web server or from the file system with a [WebGL enabled browser](https://get.webgl.org/).
 
-The demonstration will intially prompt for the type of glTF file to utilize:
+The [demonstration application](https://mariodelgadosr.github.io/DataVisual/) will intially prompt for the type of glTF file to utilize:
 
 ![Screen Shot of glTF Selection](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/gltfSelection.PNG)
 
