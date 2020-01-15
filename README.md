@@ -25,7 +25,7 @@ Three.js's [GLTFLoader](https://threejs.org/docs/index.html#examples/loaders/GLT
 
 The visualization animates the salvage strategy and leverages several of *DataVisual*'s features including:
 
-* Maintaing join context when sorting the join object;
+* Maintaining join context when sorting the join object;
 * Referencing joined properties from both the data and visual;
 * Dynamic data coloring/visualization using [D3.js](https://d3js.org/).
 * Rendering only objects that will be salvaged with a data-driven algorithm;  
