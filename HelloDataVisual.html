@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<title>Hello DataVisual</title>
+			
+		<!-- threeJs -->
+		 <script src="lib/three.min.js"></script> 
+		 <script src="lib/GLTFLoader.js"></script> 		
+		 <script src="lib/OrbitControls.js"></script> 		
+
+		<!-- DataVisual -->
+		<script src="lib/dataVisual.js" ></script> 
+		
+	</head>
+
+	<body id="container">
+
+		<div class="gltfFileLoaded"></div>
+		<div>Hello <a href="https://github.com/mariodelgadosr/dataVisual">DataVisual</a>: Mouseover scene to identify objects with joined data.</div>
+		<div>gltf File in scene: <a href="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf">CesiumMilkTruck.gltf</a></div>
+		<div class="details"></div>
+		
+		<script>
+		
+			const scene = new THREE.Scene();
+				  scene.background = new THREE.Color("#1c4a63") ;
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth * 0.6/ window.innerHeight * 0.8, 0.1, 1000 );
+			
+			const container =  document.getElementById("container");
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth * 0.6, window.innerHeight * 0.8 );
+			container.getElementsByClassName("gltfFileLoaded")[0].appendChild( renderer.domElement );	
+
+			const controls = new THREE.OrbitControls( camera, renderer.domElement );  			
+		
+			const data = [																		
+						{"name": "Cesium_Milk_Truck_0", "value": 10	},		
+						{"name": "Cesium_Milk_Truck_1", "value": 100},		
+						{"name": "Cesium_Milk_Truck_2", "value": 40	},		 
+						{"name": "Wheels", 				"value": 20	}
+					 ];	
+
+			// Raycastera and mouse to handle identification of a cube
+			var raycaster = new THREE.Raycaster();
+			var mouse = new THREE.Vector2();
+
+					
+			const gltfLoader = new THREE.GLTFLoader(); // https://threejs.org/docs/index.html#examples/loaders/GLTFLoader
+			//const gltfFile = "gltf/seaScape.gltf";
+			const gltfFile = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf";
+			
+			gltfLoader.load( gltfFile, function( gltfFileLoaded ) {
+				
+				fnVisualize(data, gltfFileLoaded);
+								
+			}, //Loader function handlder
+
+			undefined, function ( error ) {   //Error Handling
+
+				alert("Error loading " + gltfFile + ": " + error );
+
+			} ); //gltfLoader		
+
+				
+								
+			function fnVisualize(data,gltfFileLoaded){
+			
+				// Join data to visual
+				var helloDataVisual = new dataVisual();
+					helloDataVisual.joinDataToVisual(data, gltfFileLoaded);  //Join name in data to name in threejs scene
+				
+				// Lights for the scene
+				helloDataVisual.visual.scene.add(new THREE.HemisphereLight(0xffffff,0xffffff,1));
+		
+				scene.add(helloDataVisual.visual.scene);
+				
+				// Position camera on side view of Cesium Truck		
+				camera.position.x = -5; camera.position.y = 1.5; 
+				
+				// Event handler for object identification
+				renderer.domElement.addEventListener( 'mousemove', onMouseMove, false );
+				
+				// Animation loop
+				animate();
+
+
+				// Event Handler for object identification	
+				function onMouseMove( event ) {
+				
+				container.getElementsByClassName("details")[0].innerHTML = "";
+
+				// calculate mouse position in normalized device coordinates
+				mouse.x = ( event.offsetX / renderer.domElement.clientWidth ) * 2 - 1;     
+				// (-1 to +1) for both components
+				mouse.y = - ( event.offsetY / renderer.domElement.clientHeight ) * 2 + 1;                                                                    
+
+
+				// update the picking ray with the camera and mouse position
+				raycaster.setFromCamera( mouse, camera );     			
+
+				// calculate objects intersecting the picking ray        
+				var intersects = 
+						//Use the DataVisual join to retrieve only objects in the scene that participate in the join
+						raycaster.intersectObjects( helloDataVisual.join.map(function(joinRow){ return joinRow.visualObj}) ); 
+
+
+				//array.some: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+				intersects.some( intersect => {
+												// retrieve a data to object join for a given unique id that was raycast-ed on; mouse clicked on		
+												var join = helloDataVisual.getJoinByUUID(intersect.object.uuid);
+
+												// Update details div information about cube that was clicked on
+												if (join){                                                                                                            
+
+													container.getElementsByClassName("details")[0]
+														.innerHTML = "Object: " + join.dataRow.name + ", Data Value: " + join.dataRow.value;
+
+													return true;
+
+												} 
+
+											} // some handler
+								); //some
+
+				} //onMouseMove
+				
+			
+			
+			} //fnVisualize
+
+
+			function animate() {
+				requestAnimationFrame( animate );
+				controls.update();
+				renderer.render( scene, camera );
+			};			
+		
+		</script>
+		
+		
+	</body>
+
+</html>
