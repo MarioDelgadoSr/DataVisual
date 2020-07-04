@@ -49,7 +49,7 @@
 
 					
 			const gltfLoader = new THREE.GLTFLoader(); // https://threejs.org/docs/index.html#examples/loaders/GLTFLoader
-			//const gltfFile = "gltf/seaScape.gltf";
+
 			const gltfFile = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf";
 			
 			gltfLoader.load( gltfFile, function( gltfFileLoaded ) {
@@ -90,44 +90,47 @@
 				// Event Handler for object identification	
 				function onMouseMove( event ) {
 				
-				container.getElementsByClassName("details")[0].innerHTML = "";
+					
+					showDetails();
 
-				// calculate mouse position in normalized device coordinates
-				mouse.x = ( event.offsetX / renderer.domElement.clientWidth ) * 2 - 1;     
-				// (-1 to +1) for both components
-				mouse.y = - ( event.offsetY / renderer.domElement.clientHeight ) * 2 + 1;                                                                    
-
-
-				// update the picking ray with the camera and mouse position
-				raycaster.setFromCamera( mouse, camera );     			
-
-				// calculate objects intersecting the picking ray        
-				var intersects = 
-						//Use the DataVisual join to retrieve only objects in the scene that participate in the join
-						raycaster.intersectObjects( helloDataVisual.join.map(function(joinRow){ return joinRow.visualObj}) ); 
+					// calculate mouse position in normalized device coordinates
+					mouse.x = ( event.offsetX / renderer.domElement.clientWidth ) * 2 - 1;     
+					// (-1 to +1) for both components
+					mouse.y = - ( event.offsetY / renderer.domElement.clientHeight ) * 2 + 1;                                                                    
 
 
-				//array.some: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
-				intersects.some( intersect => {
-												// retrieve a data to object join for a given unique id that was raycast-ed on; mouse clicked on		
-												var join = helloDataVisual.getJoinByUUID(intersect.object.uuid);
+					// update the picking ray with the camera and mouse position
+					raycaster.setFromCamera( mouse, camera );     			
 
-												// Update details div information about cube that was clicked on
-												if (join){                                                                                                            
+					// calculate objects intersecting the picking ray  
+					// Use the DataVisual join to retrieve only objects in the scene that participate in the join					
+					var intersects = raycaster.intersectObjects( helloDataVisual.join.map(function(joinRow){ return joinRow.visualObj}) ); 
 
-													container.getElementsByClassName("details")[0]
-														.innerHTML = "Object: " + join.dataRow.name + ", Data Value: " + join.dataRow.value;
+					// collection of all intersected object uuids; may be an empty array if no intersects
+					const uuidIntersects =  intersects.map(i => i.object.uuid); 
+					
+					uuidIntersects.some( uuid =>  helloDataVisual.getJoinByUUID(uuid) ? (showDetails(uuid), true) : false );
+					
+					/* Alternate pattern
+					helloDataVisual.join.find( j => uuidIntersects.includes( j.visualObj.uuid ) ? (showDetails(j.visualObj.uuid), true) : false  );
+					*/
+						
 
-													return true;
-
-												} 
-
-											} // some handler
-								); //some
-
-				} //onMouseMove
-				
-			
+					function showDetails(uuid){
+					
+							const details = container.getElementsByClassName("details")[0];
+							
+							if (uuid){
+		
+								const obj =  helloDataVisual.getJoinByUUID(uuid);
+								details.innerHTML = obj.dataRow.name + " value: " + obj.dataRow.value;
+						   
+							} else details.innerHTML = "";	
+									
+						
+					} // showDetails
+		
+				} //onMouseMove	
 			
 			} //fnVisualize
 
