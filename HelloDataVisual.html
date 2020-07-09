@@ -16,10 +16,10 @@
 
 	<body id="container">
 	
-		<div class="gltfFileLoaded"></div>
+		<div class="gltfURLLoaded"></div>
 		<div>Hello <a href="https://github.com/mariodelgadosr/dataVisual">DataVisual</a>: Mouseover scene to identify objects with joined data.</div>
 		<div>gltf File in scene: <a href="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf">CesiumMilkTruck.gltf</a></div>
-		<div class="details"></div>
+		<div id="details"></div>
 
 		
 		<script>
@@ -29,49 +29,42 @@
 			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth * 0.6/ window.innerHeight * 0.8, 0.1, 1000 );
 			
 			const container =  document.getElementById("container");
+			const details = container.querySelector("#details");
 
 			const renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth * 0.6, window.innerHeight * 0.8 );
-			container.getElementsByClassName("gltfFileLoaded")[0].appendChild( renderer.domElement );	
+			container.getElementsByClassName("gltfURLLoaded")[0].appendChild( renderer.domElement );	
 
 			const controls = new THREE.OrbitControls( camera, renderer.domElement );  			
 		
-			const data = [																		
-						{"name": "Cesium_Milk_Truck_0", "value": 10	},		
-						{"name": "Cesium_Milk_Truck_1", "value": 100},		
-						{"name": "Cesium_Milk_Truck_2", "value": 40	},	
-						{"name": "Wheels001", 			"value": 80	},
-						{"name": "Wheels", 				"value": 20	}
-					 ];	
+
 
 			// Raycaster and mouse to handle identification of a cube
 			var raycaster = new THREE.Raycaster();
 			var mouse = new THREE.Vector2();
-
 					
 			const gltfLoader = new THREE.GLTFLoader(); // https://threejs.org/docs/index.html#examples/loaders/GLTFLoader
 
-			const gltfFile = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf";
+			const gltfURL = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf";	
 			
-			gltfLoader.load( gltfFile, function( gltfFileLoaded ) {
-				
-				fnVisualize(data, gltfFileLoaded);
-								
-			}, //Loader function handlder
+			gltfLoader.load( gltfURL,  loadedGLTF => fnVisualize(loadedGLTF), 
+										() => {}, 
+										error => alert("Error loading " + gltfURL + ": " + error ) ); //gltfLoader			
+		
+		
+			function fnVisualize(loadedGLTF){
 
-			undefined, function ( error ) {   //Error Handling
-
-				alert("Error loading " + gltfFile + ": " + error );
-
-			} ); //gltfLoader		
-
-				
-								
-			function fnVisualize(data,gltfFileLoaded){
+				const data = [																		
+							{"name": "Cesium_Milk_Truck_0", "value": 10	},		
+							{"name": "Cesium_Milk_Truck_1", "value": 100},		
+							{"name": "Cesium_Milk_Truck_2", "value": 40	},	
+							{"name": "Wheels001", 			"value": 80	},
+							{"name": "Wheels", 				"value": 20	}
+						 ];	
 			
 				// Join data to visual
 				var helloDataVisual = new dataVisual();
-					helloDataVisual.joinDataToVisual(data, gltfFileLoaded);  //Join name in data to name in threejs scene
+					helloDataVisual.joinDataToVisual(data, loadedGLTF);  //Join name in data to name in threejs scene
 				
 				// Lights for the scene
 				helloDataVisual.visual.scene.add(new THREE.HemisphereLight(0xffffff,0xffffff,1));
@@ -91,8 +84,6 @@
 				// Event Handler for object identification	
 				function onMouseMove( event ) {
 				
-					
-					showDetails();
 
 					// calculate mouse position in normalized device coordinates
 					mouse.x = ( event.offsetX / renderer.domElement.clientWidth ) * 2 - 1;     
@@ -107,41 +98,19 @@
 					// Use the DataVisual join to retrieve only objects in the scene that participate in the join					
 					var intersects = raycaster.intersectObjects( helloDataVisual.join.map(function(joinRow){ return joinRow.visualObj}) ); 
 
-					// collection of all intersected object uuids; may be an empty array if no intersects
-					const uuidIntersects =  intersects.map(i => i.object.uuid); 
-					
-					uuidIntersects.some( uuid =>  helloDataVisual.getJoinByUUID(uuid) ? (showDetails(uuid), true) : false );
-					
-					/* Alternate pattern
-					helloDataVisual.join.find( j => uuidIntersects.includes( j.visualObj.uuid ) ? (showDetails(j.visualObj.uuid), true) : false  );
-					*/
-						
+					details.innerHTML = intersects.length == 0 ? "" : 
+							intersects[0].object.name + " value: " +   helloDataVisual.getJoinByUUID(intersects[0].object.uuid).dataRow.value;                        
 
-					function showDetails(uuid){
-					
-							const details = container.getElementsByClassName("details")[0];
-							
-							if (uuid){
-		
-								const obj =  helloDataVisual.getJoinByUUID(uuid);
-								details.innerHTML = obj.dataRow.name + " value: " + obj.dataRow.value;
-						   
-							} else details.innerHTML = "";	
-									
-						
-					} // showDetails
 		
 				} //onMouseMove	
-			
-			} //fnVisualize
-
-
-			function animate() {
-				requestAnimationFrame( animate );
-				controls.update();
-				renderer.render( scene, camera );
-			};			
+				
+				function animate() {
+					requestAnimationFrame( animate );
+					controls.update();
+					renderer.render( scene, camera );
+				};			
 		
+			} //fnVisualize
 		</script>
 		
 		
