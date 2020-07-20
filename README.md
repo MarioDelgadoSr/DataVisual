@@ -113,8 +113,8 @@ Method | Description
 Property | Description
 -------- | -----------
 .join | A join object (array).  Each element of the array will be an object referencing a joined (matching) dataRow and visuaObj.
-.join.dataRow | A reference to data row from the original data array that corresponds to the joined (matching) visualObj.
-.join.visualObj | A reference to the Three.js mesh being 'joined' to.
+.join[n].dataRow | A reference to nth data row from the original data array that corresponds to the joined nth (matching) visualObj.
+.join[n].visualObj | A reference to the nth Three.js mesh being 'joined' to that corresponds to the joined nth (matching) dataRow.
 .data | The original data participating in the 'join'.
 .visual | The original visual participating in the 'join'.
 .dataKey | The data key attribute being used to join to a corresponding mesh in the visual.
