@@ -59,7 +59,7 @@ Observable Notebook: [DataVisual (Data + Visual) Design Pattern for WebGL 3D Ass
 
 ## Design Pattern Usage Illustrated in the Demonstration
 
-### DataVisual with Data in an Object Apart from the Visual 
+### DataVisual with Data in an Object Not Embedded in the Visual 
 
 **Assuming the following:**
 
