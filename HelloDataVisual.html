@@ -16,33 +16,20 @@
 
 	<body id="container">
 	
-		<div class="gltfURLLoaded"></div>
-		<div>Hello <a href="https://github.com/mariodelgadosr/dataVisual">DataVisual</a>: Mouseover scene to identify objects with joined data.</div>
-		<div>gltf File in scene: <a href="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf">CesiumMilkTruck.gltf</a></div>
-		<div id="details"></div>
-
+		<span>Hello <a href="https://github.com/mariodelgadosr/dataVisual">DataVisual</a>: Mouseover scene to identify objects with joined data. gltf File in scene: <a href="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf">CesiumMilkTruck.gltf</a></span>
 		
 		<script>
 		
 			const scene = new THREE.Scene();
 				  scene.background = new THREE.Color("#1c4a63") ;
-			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth * 0.6/ window.innerHeight * 0.8, 0.1, 1000 );
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 			
-			const container =  document.getElementById("container");
-			const details = container.querySelector("#details");
-
 			const renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth * 0.6, window.innerHeight * 0.8 );
-			container.getElementsByClassName("gltfURLLoaded")[0].appendChild( renderer.domElement );	
-
+			renderer.setSize( window.innerWidth, window.innerHeight);
+			document.body.appendChild( renderer.domElement );	
+			
 			const controls = new THREE.OrbitControls( camera, renderer.domElement );  			
-		
-
-
-			// Raycaster and mouse to handle identification of a cube
-			var raycaster = new THREE.Raycaster();
-			var mouse = new THREE.Vector2();
-					
+			
 			const gltfLoader = new THREE.GLTFLoader(); // https://threejs.org/docs/index.html#examples/loaders/GLTFLoader
 
 			const gltfURL = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf";	
@@ -65,48 +52,23 @@
 				// Join data to visual
 				var helloDataVisual = new dataVisual();
 					helloDataVisual.joinDataToVisual(data, loadedGLTF);  //Join name in data to name in threejs scene
-				
-				// Lights for the scene
-				helloDataVisual.visual.scene.add(new THREE.HemisphereLight(0xffffff,0xffffff,1));
-		
+					
 				scene.add(helloDataVisual.visual.scene);
+				scene.add(new THREE.HemisphereLight(0xffffff,0xffffff,1))
 				
 				// Position camera on side view of Cesium Truck		
-				camera.position.x = -5; camera.position.y = 1.5; 
+				camera.position.set( -5, 1, 0.5 );
+				controls.update();
 				
-				// Event handler for object identification
-				renderer.domElement.addEventListener( 'mousemove', onMouseMove, false );
+				// Tooltip can be added after renderer has been added to an HTML element and camera added to scene
+				helloDataVisual.addToolTip({renderer,camera});
 				
 				// Animation loop
 				animate();
 
-
-				// Event Handler for object identification	
-				function onMouseMove( event ) {
-				
-
-					// calculate mouse position in normalized device coordinates
-					mouse.x = ( event.offsetX / renderer.domElement.clientWidth ) * 2 - 1;     
-					// (-1 to +1) for both components
-					mouse.y = - ( event.offsetY / renderer.domElement.clientHeight ) * 2 + 1;                                                                    
-
-
-					// update the picking ray with the camera and mouse position
-					raycaster.setFromCamera( mouse, camera );     			
-
-					// calculate objects intersecting the picking ray  
-					// Use the DataVisual join to retrieve only objects in the scene that participate in the join					
-					var intersects = raycaster.intersectObjects( helloDataVisual.join.map(function(joinRow){ return joinRow.visualObj}) ); 
-
-					details.innerHTML = intersects.length == 0 ? "" : 
-							intersects[0].object.name + " value: " +   helloDataVisual.getJoinByUUID(intersects[0].object.uuid).dataRow.value;                        
-
-		
-				} //onMouseMove	
 				
 				function animate() {
 					requestAnimationFrame( animate );
-					controls.update();
 					renderer.render( scene, camera );
 				};			
 		
