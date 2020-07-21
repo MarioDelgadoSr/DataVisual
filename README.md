@@ -107,6 +107,10 @@ Method | Description
 .getJoinByKey(dataKey, "index") | Get a joined row's index by referencing a dataRow's *dataKey*.
 .setColorVisualObj(visualObj,color) | Set the material.color property for a mesh.  The method utilizes the Three.js [traverse](https://threejs.org/docs/index.html#api/en/core/Object3D.traverse) method to set color for any children the mesh may have as well.
 .setColorByJoinIndex(index,color) | Set the material.color property for a mesh by referencing the index of the join. The method invokes .setColorVisualObj for the given index.
+.isolateObjects(visualObjs) | Isolates makes solely the visual objects in the *visualObjs* array visible; *visible* = true;
+.showAll() | Shows all all visual objects in the *DataVisual* visible; *visible* = true; 
+.addToolTip(config) | Implements a custom tooltip assuming the following objects properties of the config object:  (See [Hello, DataVisual!](https://observablehq.com/@mariodelgadosr/hello-datavisual) for an example.)<br/><br/>*renderer*: A Three.js [WebGLrenderer object](https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderer) that has been attached to an HTML parent element.<br/><br/>*camera*: A Three.js [camera object](https://threejs.org/docs/index.html#api/en/cameras/Camera)<br/><br/>*getToolTipText*: A tooltip text formatting function callback that will be passed a *join* row as a paremeter.  The function must return a string for the tooltip's text.  
+
 
 **Properties:** 
 
