@@ -30,8 +30,7 @@ The visualization animates the salvage strategy and leverages several of *DataVi
 * Dynamic data coloring/visualization using [D3.js](https://d3js.org/).
 * Rendering only objects that will be salvaged with a data-driven algorithm;  
 	* All objects can be displayed/rendered with a user-driven (aquaBot's operator) option for *human* validation;
-* Demonstration of [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) to display an object when selected (mouse click) by aquaBot's operator; leveraging *DataVisual*'s *getJoinByUUID* method.
-
+* Use of the built-in tooltip to and mouse event handler.
 
 ### Prerequisites
 
@@ -142,7 +141,7 @@ Property | Description
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Free to all non-profit organizations.  Businesses can [email](mailto:MyDataVisualizer@gmail.com) for licences details.
 
 
 
