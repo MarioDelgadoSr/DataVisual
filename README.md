@@ -11,14 +11,14 @@ Traditional [dataset processing](https://en.wikipedia.org/wiki/Set_theory) can b
 
 ## *Hello DataVisual* available on [Observable](https://observablehq.com/@mariodelgadosr/hello-datavisual) and in the [repository](HelloDataVisual.html).
 
-## *DataVisual* Demonstrated With a U.S Navy Salvage Robot (aquaRobot) Use Case
+## *DataVisual* Demonstrated With a U.S Navy Salvage Robot (aquaBot) Use Case
 
 ![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
-The [demonstration (https://mariodelgadosr.github.io/DataVisual/)](https://mariodelgadosr.github.io/DataVisual/) illustrates *DataVisual*'s features with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaRobot determining an optimal salvage
+The [demonstration (https://mariodelgadosr.github.io/DataVisual/)](https://mariodelgadosr.github.io/DataVisual/) illustrates *DataVisual*'s features with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaBot determining an optimal salvage
 retrieval strategy for objects floating and submersed out at sea.  
 
-aquaRobot utilizes information about the salvage items in a data array partnered/join with the 3D visual's spatial attributes to maximize the salvage; keeping track of how
+aquaBot utilizes information about the salvage items in a data array partnered/join with the 3D visual's spatial attributes to maximize the salvage; keeping track of how
 much fuel it would have left.  
 
 The 3D visual was developed with [Blender](https://www.blender.org/) and exported as a [glTF](https://en.wikipedia.org/wiki/GlTF) file.  
@@ -31,8 +31,8 @@ The visualization animates the salvage strategy and leverages several of *DataVi
 * Referencing joined properties from both the data and visual;
 * Dynamic data coloring/visualization using [D3.js](https://d3js.org/).
 * Rendering only objects that will be salvaged with a data-driven algorithm;  
-	* All objects can be displayed/rendered with a user-driven (aquaRobot's operator) option for *human* validation;
-* Demonstration of [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) to display an object when selected (mouse click) by aquaRobot's operator; leveraging *DataVisual*'s *getJoinByUUID* method.
+	* All objects can be displayed/rendered with a user-driven (aquaBot's operator) option for *human* validation;
+* Demonstration of [raycasting](https://threejs.org/docs/index.html#api/en/core/Raycaster) to display an object when selected (mouse click) by aquaBot's operator; leveraging *DataVisual*'s *getJoinByUUID* method.
 
 
 ### Prerequisites
