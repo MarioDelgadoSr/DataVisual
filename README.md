@@ -20,8 +20,7 @@ retrieval strategy for objects floating and submersed out at sea.
 
 aquaBot utilizes information about the salvage items in a data array partnered (*join*ed) with the 3D visual's spatial attributes to maximize the salvage with a fixed amount of fuel.  
 
-The 3D visual was developed with [Blender](https://www.blender.org/) and exported as a [glTF](https://en.wikipedia.org/wiki/GlTF) file.  
-Three.js's [GLTFLoader](https://threejs.org/docs/index.html#examples/loaders/GLTFLoader) is used in the demonstration to load the 3D visual an then dynamically visualizes it.
+The 3D visual was developed with [Blender](https://www.blender.org/) and exported as a [glTF](https://en.wikipedia.org/wiki/GlTF) file.  Three.js's [GLTFLoader](https://threejs.org/docs/index.html#examples/loaders/GLTFLoader) is used in the demonstration to load the 3D visual an then dynamically visualizes it.
 
 
 The visualization animates the salvage strategy and leverages several of *DataVisual*'s features including:
