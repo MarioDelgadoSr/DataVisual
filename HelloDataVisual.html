@@ -28,10 +28,11 @@
 			renderer.setSize( window.innerWidth, window.innerHeight);
 			document.body.appendChild( renderer.domElement );	
 			
-			const controls = new THREE.OrbitControls( camera, renderer.domElement );  			
+			const controls = new THREE.OrbitControls( camera, renderer.domElement );
+				  controls.autoRotate =  true;  
 			
 			const gltfLoader = new THREE.GLTFLoader(); // https://threejs.org/docs/index.html#examples/loaders/GLTFLoader
-
+			
 			const gltfURL = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf";	
 			
 			gltfLoader.load( gltfURL,  loadedGLTF => fnVisualize(loadedGLTF), 
@@ -58,14 +59,21 @@
 				
 				// Position camera on side view of Cesium Truck		
 				camera.position.set( -5, 1, 0.5 );
-				controls.update();
+
 				
-				// Tooltip can be added after renderer has been added to an HTML element and camera added to scene
+				const getToolTipText =  (join,dv) => { 	const total = dv.join.reduce((acc,join) => acc + join.dataRow.measure, 0);
+														return "Total of measures: " + total + "<br/>" +
+																Object.keys(join.dataRow)
+																	  .map(field => field + ": " + join.dataRow[field])
+																	  .join("<br/>");
+													 }; 
+																					  
+			  	// Tooltip can be added after renderer has been added to an HTML element and camera added to scene
 				helloDataVisual.addToolTip( renderer, 
-											 camera, 
-											 undefined, //No callback; use default tooltip
-											 (join) => open("https://bing.com/search?q=" + join.visualObj.name, "_blank") //DblClick
-										   );
+											camera,
+											getToolTipText, // Call using dataVisual parameter to total all measures
+											(join) => open("https://bing.com/search?q="+join.visualObj.name, "_blank")//DblClick
+										);
 				
 				// Animation loop
 				animate();
@@ -73,6 +81,7 @@
 				
 				function animate() {
 					requestAnimationFrame( animate );
+					controls.update();
 					renderer.render( scene, camera );
 				};			
 		
