@@ -61,15 +61,15 @@
 				camera.position.set( -5, 1, 0.5 );
 
 				
-				 const getToolTipText =  (join,dv) => { 
-														 const total = dv.join.reduce((acc,join) => acc + join.dataRow.measure, 0);
-														 return Object.keys(join.dataRow)
-																	  .map(field => field + ": " + join.dataRow[field])
-																	  .join("<br/>") + "<br/>" +
-																"total: " + total + "<br/>" + 	  
-																"measure/total: " + (join.dataRow["measure"] / total * 100) + "%";
-													   }; 
-																					  
+				const getToolTipText =  (join,dataVisual) => { 
+											const total = dataVisual.join.reduce((acc,join) => acc + join.dataRow.measure, 0);
+											return Object.keys(join.dataRow)
+														 .map(field => field + ": " + join.dataRow[field])
+														 .join("<br/>") + "<br/>" +
+											"total: " + total + "<br/>" + 
+											"measure/total: " + (join.dataRow["measure"] / total * 100) + "%";
+										}; 	
+										
 			  	// Tooltip can be added after renderer has been added to an HTML element and camera added to scene
 				helloDataVisual.addToolTip( renderer, 
 											camera,
