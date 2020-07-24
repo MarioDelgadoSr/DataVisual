@@ -42,13 +42,13 @@
 		
 			function fnVisualize(loadedGLTF){
 
-				const data = [																		
-							{"name": "Cesium_Milk_Truck_0", "value": 10	},		
-							{"name": "Cesium_Milk_Truck_1", "value": 100},		
-							{"name": "Cesium_Milk_Truck_2", "value": 40	},	
-							{"name": "Wheels001", 			"value": 80	},
-							{"name": "Wheels", 				"value": 20	}
-						 ];	
+			data = [		
+						{"name": "Cesium_Milk_Truck_0", "measure": 10,  "dimension" : "Truck Body"  	},		
+						{"name": "Cesium_Milk_Truck_1", "measure": 100, "dimension" : "Window"  		},		
+						{"name": "Cesium_Milk_Truck_2", "measure": 40,  "dimension" : "Truck Body"		},	
+						{"name": "Wheels001", 			"measure": 80,  "dimension" : "Wheel Assembly"	},
+						{"name": "Wheels", 				"measure": 20,  "dimension" : "Wheel Assembly"	}
+					];
 			
 				// Join data to visual
 				var helloDataVisual = new dataVisual();
@@ -61,12 +61,14 @@
 				camera.position.set( -5, 1, 0.5 );
 
 				
-				const getToolTipText =  (join,dv) => { 	const total = dv.join.reduce((acc,join) => acc + join.dataRow.measure, 0);
-														return "Total of measures: " + total + "<br/>" +
-																Object.keys(join.dataRow)
+				 const getToolTipText =  (join,dv) => { 
+														 const total = dv.join.reduce((acc,join) => acc + join.dataRow.measure, 0);
+														 return Object.keys(join.dataRow)
 																	  .map(field => field + ": " + join.dataRow[field])
-																	  .join("<br/>");
-													 }; 
+																	  .join("<br/>") + "<br/>" +
+																"total: " + total + "<br/>" + 	  
+																"measure/total: " + (join.dataRow["measure"] / total * 100) + "%";
+													   }; 
 																					  
 			  	// Tooltip can be added after renderer has been added to an HTML element and camera added to scene
 				helloDataVisual.addToolTip( renderer, 
