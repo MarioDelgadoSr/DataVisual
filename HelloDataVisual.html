@@ -66,8 +66,8 @@
 											return Object.keys(join.dataRow)
 														 .map(field => field + ": " + join.dataRow[field])
 														 .join("<br/>") + "<br/>" +
-											"total: " + total + "<br/>" + 
-											"measure/total: " + (join.dataRow["measure"] / total * 100) + "%";
+											"total measure: " + total + "<br/>" + 
+											"measure/total measure: " + (join.dataRow["measure"] / total * 100) + "%";
 										}; 	
 										
 			  	// Tooltip can be added after renderer has been added to an HTML element and camera added to scene
