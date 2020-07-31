@@ -9,7 +9,7 @@ With a *DataVisual* you can dynamically visualize individual [meshes](https://th
 
 Traditional [dataset processing](https://en.wikipedia.org/wiki/Set_theory) can be used on a *DataVisual* leveraging [JavaScript's robust array methods](https://www.w3schools.com/js/js_array_methods.asp); most notably [MapReduce](http://jcla1.com/blog/javascript-mapreduce) patterns.
 
-## *Hello DataVisual* available on [Observable](https://observablehq.com/@mariodelgadosr/hello-datavisual) and in the [repository](HelloDataVisual.html).
+## *Hello DataVisual* demo ([source](HelloDataVisual.html)) is available on [Observable](https://observablehq.com/@mariodelgadosr/hello-datavisual) and in the [repository](https://mariodelgadosr.github.io/DataVisual/HelloDataVisual.html).
 
 ## *DataVisual* Demonstrated With a U.S Navy Salvage Robot (aquaBot) Use Case
 
