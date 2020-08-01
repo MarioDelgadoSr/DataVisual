@@ -63,7 +63,7 @@ Observable Notebook: [DataVisual (Data + Visual) Design Pattern for WebGL 3D Ass
 * A JavaScript data object in the following format: 
 
 ```javascript
-var data = [{name: "object1", value: value1, ...} ,{name: "object2", value2, ...}, ... }];
+const data = [{name: "object1", value: value1, ...} ,{name: "object2", value2, ...}, ... }];
 ```
 
 * A glTF file loaded into the variable *visual* with *name* attibutes for the meshes that match the *name* attributes for the data object;
@@ -71,8 +71,11 @@ var data = [{name: "object1", value: value1, ...} ,{name: "object2", value2, ...
 **Create a DataVisual object with the following syntax:**
 
 ```javascript
-var datVisual = new dataVisual();
+const datVisual = new dataVisual();
 datVisual.joinDataToVisual(data, visual);
+
+// Alternate instantiation pattern supported by the ES6 class:
+// const datVisual = new dataVisual({data, visual});
 ```
 
 ### DataVisual with Data Embedded in the Visual
@@ -85,8 +88,11 @@ Three.js, as well as the glTF specifications, provide for a strategy to extend t
 Instantiating a **DataVisual** in the following format creates a *dataVisual* object from a *visual* when the data is embedded in the [*userData*](https://threejs.org/docs/index.html#api/en/core/Object3D.userData)  property.
 
 ```javascript
-var datVisual = new dataVisual();
+const datVisual = new dataVisual();
 datVisual.joinDataToVisual(visual);
+
+// Alternate instantiation pattern supported by the ES6 class:
+// const datVisual = new dataVisual({visual});
 ```
 
 **The dataVisual has the following methods and properties:**
