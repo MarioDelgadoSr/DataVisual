@@ -30,7 +30,7 @@ The visualization animates the salvage strategy and leverages several of *DataVi
 * Dynamic data coloring/visualization using [D3.js](https://d3js.org/).
 * Rendering only objects that will be salvaged with a data-driven algorithm;  
 	* All objects can be displayed/rendered with a user-driven (aquaBot's operator) option for *human* validation;
-* Use of the built-in tooltip to and mouse event handler.
+* Use of the built-in tooltip and mouse event handler.
 
 ### Prerequisites
 
