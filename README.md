@@ -51,7 +51,7 @@ The [demonstration application](https://mariodelgadosr.github.io/DataVisual/) wi
 
 ## Documentation
 
-Observable Notebook: [DataVisual (Data + Visual) Design Pattern for WebGL 3D Assets](https://observablehq.com/@mariodelgadosr/datavisual-data-visual-design-pattern-for-webgl-3d-assets)
+Several Observable Notebooks in the [DataVisual Collection](https://observablehq.com/collection/@mariodelgadosr/datavisual).
 
 
 ## Design Pattern Usage Illustrated in the Demonstration
