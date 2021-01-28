@@ -15,7 +15,7 @@ Traditional [dataset processing](https://en.wikipedia.org/wiki/Set_theory) can b
 
 ![Screen Shot of Demonstration](https://github.com/MarioDelgadoSr/DataVisual/blob/master/img/demoDesignPatternScreenShot.png)
 
-The [demonstration](https://mariodelgadosr.github.io/DataVisual/)](https://mariodelgadosr.github.io/DataVisual/) illustrates *DataVisual*'s features with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaBot determining an optimal salvage
+The [demonstration](https://mariodelgadosr.github.io/DataVisual/) illustrates *DataVisual*'s features with a use case simulating a U.S. Navy (*Go Navy! Beat Army*) aquaBot determining an optimal salvage
 retrieval strategy for objects floating and submersed out at sea.  
 
 aquaBot utilizes information about the salvage items in a data array partnered (*join*ed) with the 3D visual's spatial attributes to maximize the salvage with a fixed amount of fuel.  
