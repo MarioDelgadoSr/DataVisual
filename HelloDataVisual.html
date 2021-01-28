@@ -70,12 +70,15 @@
 											"measure/total measure: " + (join.dataRow["measure"] / total * 100) + "%";
 										}; 	
 										
-			  	// Tooltip can be added after renderer has been added to an HTML element and camera added to scene
+			  	// Tooltip and event handlers can be added after renderer has been added to an HTML element and camera added to scene
 				helloDataVisual.addToolTip( renderer, 
 											camera,
-											getToolTipText, // Call using dataVisual parameter to total all measures
-											(join) => open("https://bing.com/search?q="+join.dataRow.dimension, "_blank")//DblClick
-										);
+											getToolTipText // Call using dataVisual parameter to total all measures
+								)
+								.onDblClick(renderer, camera,
+											join => open(`https://bing.com/search?q=${join.dataRow.dimension}`, "_blank") 
+								);										
+										
 				
 				// Animation loop
 				animate();
