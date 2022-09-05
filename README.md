@@ -150,7 +150,7 @@ Property | Description
 
 ## License
 
-Free to all non-profit organizations.  Businesses can [email](mailto:MyDataVisualizer@gmail.com) for licences details.
+Free to all non-profit organizations. Businesses and commercial enterprises are granted a full-use license as long as they make their application freely available to non-profits.
 
 
 
